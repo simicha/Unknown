@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet, Text, TextInput, Dimensions } from 'react-native';
 import ActionsButtons from './components/ActionButtons/index';
@@ -13,31 +13,28 @@ const isValid = (input) => {
 }
 
 export default function App() {
-  const countryCodeRef = useRef();
-  const phoneNumberRef = useRef();
-  const messageRef = useRef();
+
+  const [code, setCode] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
 
   const submitHandler = () => {
-
-    if(isValid(countryCodeRef.current.value) && isValid(phoneNumberRef.current.value) && isValid(messageRef.current.value)) {
-      const form = {
-        countryCode: countryCodeRef.current.value,
-        phoneNumber: phoneNumberRef.current.value,
-        message: messageRef.current.value
-      };
-      // do request
-      console.log(form);
+    if(isValid(code) && isValid(phone) && isValid(message)) {
+      console.log({
+        code,
+        phone,
+        message
+      });
       resetForm();
     }else{
-      // invalid form
-      console.log('Invalid form');
+      console.log('Invalid form!');
     }
   };
 
   const resetForm = () => {
-    countryCodeRef.current.value= '';
-    phoneNumberRef.current.value= '';
-    messageRef.current.value= '';  
+    setCode('');
+    setPhone('');
+    setMessage('');
   };
 
   return (
@@ -49,17 +46,20 @@ export default function App() {
         <TextInput 
           style={styles.textInput}
           placeholder="Country code"
-          ref={countryCodeRef}
+          value={code}
+          onChangeText={setCode}
         />
         <TextInput 
           style={styles.textInput}
           placeholder="Phone Number"
-          ref={phoneNumberRef}
+          value={phone}
+          onChangeText={setPhone}
         />
         <TextInput 
           style={styles.textInput}
           placeholder="Message"
-          ref={messageRef}
+          value={message}
+          onChangeText={setMessage}
         />
         <ActionsButtons 
           action={submitHandler}
