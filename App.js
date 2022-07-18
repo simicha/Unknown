@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet, Text, TextInput, Dimensions, Linking } from 'react-native';
+import { getFilteredCountries } from './helpers/filter-country';
 import ActionsButtons from './components/ActionButtons/index';
 
 const {width, height} = Dimensions.get('screen');
@@ -32,6 +33,13 @@ export default function App() {
     }
   };
 
+  const codeChangeHandler = (input) => {
+    const countries = getFilteredCountries(input);
+    console.log(countries);
+    setCode(input);
+  };
+
+
   const goToWhatsApp = () => {
     Linking.openURL(`whatsapp://send?text=${message}&phone=${code + phone}`)
     return null;
@@ -53,7 +61,7 @@ export default function App() {
           style={styles.textInput}
           placeholder="Country code"
           value={code}
-          onChangeText={setCode}
+          onChangeText={codeChangeHandler}
         />
         <TextInput 
           placeholder={'Phone Number'}
