@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   btnTxt: {
     textAlign: 'center',
     padding: 15,
-    width: '80%',
+    width: '100%',
     height: 50,
     borderRadius: 15,
     fontSize: 20,

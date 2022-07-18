@@ -63,6 +63,7 @@ export default function App() {
         />
         <ActionsButtons 
           action={submitHandler}
+          label="Send message"
         />
         <StatusBar style='auto'/>
       </View>
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     top: '-50%',
     left: 20,
-    fontSize: 40,
+    fontSize: 35,
     color: '#008F8C',
     fontWeight: 'bold'
   },
@@ -96,8 +97,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     top: '-45%',
     left: 20,
-    fontSize: 10,
-    fontSize: 15,
+    fontSize: 12,
     color: 'white',
   },
   textInput: {
