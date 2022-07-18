@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet, Text, TextInput, Dimensions } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Dimensions, Linking } from 'react-native';
 import ActionsButtons from './components/ActionButtons/index';
 
 const {width, height} = Dimensions.get('screen');
@@ -25,10 +25,16 @@ export default function App() {
         phone,
         message
       });
+      goToWhatsApp();
       resetForm();
     }else{
       console.log('Invalid form!');
     }
+  };
+
+  const goToWhatsApp = () => {
+    Linking.openURL(`whatsapp://send?text=${message}&phone=${code + phone}`)
+    return null;
   };
 
   const resetForm = () => {
@@ -50,10 +56,12 @@ export default function App() {
           onChangeText={setCode}
         />
         <TextInput 
+          placeholder={'Phone Number'}
           style={styles.textInput}
-          placeholder="Phone Number"
           value={phone}
           onChangeText={setPhone}
+          keyboardType="numeric"
+          maxLength={10}
         />
         <TextInput 
           style={styles.textInput}
