@@ -44,9 +44,7 @@ const styles = StyleSheet.create({
   btnTxt: {
     textAlign: 'center',
     padding: 15,
-    width: '100%',
-    height: 50,
-    borderRadius: 15,
+    borderRadius: 10,
     fontSize: 20,
     color: 'white',
     backgroundColor: 'rgb(1, 89, 88)'

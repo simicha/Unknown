@@ -39,7 +39,7 @@ export default function App() {
 
   return (
     <View style={styles.containerMain}>
-      <View style={styles.containerSVG}></View>
+      <View style={styles.containerHeader}></View>
       <View style={styles.container}>
         <Text style={styles.title}>Write your message</Text>
         <Text style={styles.subtitle}>Write the message you will send to the unknown number!</Text>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  containerSVG: {
+  containerHeader: {
     width: width,
     height: 250,
     backgroundColor: '#015958'
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   title: {
     position: 'relative',
     top: '-50%',
-    left: 20,
+    left: 10,
     fontSize: 35,
     color: '#008F8C',
     fontWeight: 'bold'
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   subtitle: {
     position: 'relative',
     top: '-45%',
-    left: 20,
+    left: 10,
     fontSize: 12,
     color: 'white',
   },
