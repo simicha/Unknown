@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet, Text, TextInput, Dimensions, Linking } from 'react-native';
-import { getFilteredCountries } from './helpers/filter-country';
 import ActionsButtons from './components/ActionButtons/index';
+import getFilteredCountries from './helpers/filter-country';
 
 const {width, height} = Dimensions.get('screen');
 

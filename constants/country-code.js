@@ -1,4 +1,4 @@
-export const countryCode = [
+const countryCode = [
   {
     "flag": "🇬🇺",
     "root": {
@@ -2817,3 +2817,5 @@ export const countryCode = [
     "name": "Bhutan"
   }
 ];
+
+export default countryCode;
